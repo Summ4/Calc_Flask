@@ -2,7 +2,7 @@ from math import sqrt
 
 from flask import Flask, render_template, request
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="template")
 
 
 @app.route('/')
@@ -10,34 +10,36 @@ def main():
     return render_template('entry.html')
 
 
-@app.route('/entry', methods=['POST'])
-def send(sum=sum):
+@app.route('/entry', methods=['GET', 'POST'])
+def send(sm=sum):
+    num1 = request.form['num1']
+    num2 = request.form['num2']
+    operation = request.form['operation']
     if request.method == 'POST':
         num1 = request.form['num1']
         num2 = request.form['num2']
         operation = request.form['operation']
 
-
         if operation == 'დამატება':
-            sum = int(num1) + int(num2)
+            sum = float(num1) + float(num2)
             return render_template('result.html', result=sum, num1=num1, num2=num2)
 
         elif operation == 'გამოკლება':
-            sum = int(num1) - int(num2)
+            sum = float(num1) - float(num2)
             return render_template('result.html', result=sum, num1=num1, num2=num2)
 
         elif operation == 'გამრავლება':
-            sum = int(num1) * int(num2)
+            sum = float(num1) * float(num2)
             return render_template('result.html', result=sum, num1=num1, num2=num2)
 
         elif operation == 'გაყოფა':
-            sum = int(num1) / int(num2)
+            sum = float(num1) / float(num2)
             return render_template('result.html', result=sum, num1=num1, num2=num2)
         elif operation == 'ახარისხება':
-            sum = pow(num1, num2)
+            sum = pow(float(num1), float(num2))
             return render_template('result.html', result=sum, num1=num1, num2=num2)
         elif operation == 'ფესვი':
-            sum = sqrt(num1)
+            sum = sqrt(float(num1))
             return render_template('result.html', result=sum, num1=num1, num2=num2)
         else:
             return render_template('entry.html')
@@ -50,8 +52,8 @@ def result():
     sum = request.form['result']
 
     return render_template('result.html',
-                           the_first=num1,
-                           the_second=num2,
+                           num1=num1,
+                           num2=num2,
                            result=sum)
 
 if __name__ == '__main__':

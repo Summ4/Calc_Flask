@@ -10,7 +10,7 @@
     </div>
 
     <div>
-      <form  method="POST" action="/result" >
+      <form  method="POST" action="/entry" >
         <label>პირველი რიცხვი</label>
         <input
           type="text"
@@ -23,6 +23,11 @@
           type="text"
           class="u-full-width"
           name="num2"
+        />
+        <input
+          type="hidden"
+          class="u-full-width"
+          name="result"
         />
 
 
@@ -41,15 +46,6 @@
 
 
         <input type="submit" value="გამოთვლა" id="calculate" />
-
-
-        <input
-          type="hidden"
-          class="u-full-width"
-          name="result"
-        />
-
-
 
         <br />
         <div>
