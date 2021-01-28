@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h2>{{ the_title }}</h2>
+
+<table>
+    <tr>
+        <td>პირველი რიცხვი:</td><td>{{ the_first }}</td>
+    </tr>
+    <tr>
+        <td>მეორე რიცხვი:</td><td>{{ the_second }}</td>
+    </tr>
+
+</table>
+
+<p>მოცემული რიცხვების კომბინაციის შედეგია:</p>
+<h3>{{ result }}</h3>
+
+{% endblock %}

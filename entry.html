@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>კალკულატორი</title>
+
+  </head>
+  <body>
+    <div>
+      <h3>თქვენ გაქვთ შესაძლებლობა გატესტოთ ჩემი მინი კალკულატორი</h3>
+    </div>
+
+    <div>
+      <form  method="POST" action="/result" >
+        <label>პირველი რიცხვი</label>
+        <input
+          type="text"
+          class="u-full-width"
+          name="num1"
+        />
+
+        <label>მეორე რიცხვი</label>
+        <input
+          type="text"
+          class="u-full-width"
+          name="num2"
+        />
+
+
+
+        <label for="Operation">მოქმედება</label>
+        <select name="operation">
+          <option value="დამატება">დამატება</option>
+          <option value="გამოკლება">გამოკლება</option>
+          <option value="გამრავლება">გამრავლება</option>
+          <option value="გაყოფა">გაყოფა</option>
+          <option value="ახარისხება">ახარისხება</option>
+          <option value="ფესვი">ფესვი</option>
+
+        </select>
+
+
+
+        <input type="submit" value="გამოთვლა" id="calculate" />
+
+
+        <input
+          type="hidden"
+          class="u-full-width"
+          name="result"
+        />
+
+
+
+        <br />
+        <div>
+          {{ result }}
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
